@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url(back.jpg);
+            background-size: cover;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .container_kapil {
+            width: 60%;
+            border: 0px solid red;
+            padding: 0px; /* Added padding for better visualization */
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            box-shadow: rgb(54, 52, 10) 0px -2px 3px 3px;
+        }
+
+        /* Style for the menu items */
+        .menu-item {
+            padding: 10px;
+            border-bottom: 0px solid #ddd;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Added transition for smooth color change */
+        }
+        .menu-item i {
+            margin-right: 8px;
+        }
+
+        /* Hide the additional content by default */
+        .additional-content {
+            display: none;
+        }
+        
+        .main_header{
+            border: 0px solid black;
+            width: 70%;
+            height: auto;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+        .mb-4 {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .right_content{
+            width: 100%;
+            height: 500px;
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+        .portfolio-gallery img {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .portfolio-gallery img:hover {
+            transform: scale(1.1);
+        }
+        input, textarea{
+            background-color: black !important;
+            color: white !important;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container_kapil">
+        <div class="row">
+            <div class="col-2 p-4">
+                <!-- Menu -->
+                <div class="menu-item d-flex align-items-center" onclick="reloadPage()">
+                    <i class="bi-house-door"></i> Home
+                </div>
+                <div class="menu-item d-flex align-items-center" onclick="showContent('resume')">
+                    <i class="bi-file-person"></i> Resume
+                </div>
+                <div class="menu-item d-flex align-items-center" onclick="showContent('skills')">
+                    <i class="bi-tools"></i> Skills
+                </div>
+                <div class="menu-item d-flex align-items-center" onclick="showContent('portfolio')">
+                    <i class="bi-card-list"></i> Portfolio
+                </div>
+                <div class="menu-item d-flex align-items-center" onclick="showContent('blog')">
+                    <i class="bi-journal-text"></i> Blog
+                </div>
+                <div class="menu-item d-flex align-items-center" onclick="showContent('contact')">
+                    <i class="bi-envelope"></i> Contact
+                </div>
+            </div>
+            <div class="col-5 pt-5">
+                <!-- Default main content -->
+                <div class="main-content additional-content1 main_header">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="https://avatars.githubusercontent.com/u/67285213?v=4" alt="" width="150" height="150" class="rounded-circle">
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2 class="mt-3">Hi, I'm Kapil Inania</h2>
+                            <p class="mt-2">I am a  <span class="example-selector"></span>  </p>
+                            <hr>
+                            <p>Founder of cssvibe. Professional Full Stack  developer based in Jodhpur. Sometimes works as a freelancer.</p>
+                
+                            <!-- Email and Phone -->
+                            <div class="text-center">
+                                <!-- <a href="mailto:bhaikapil175@gmail.com" class="btn btn-primary mb-3 text-white">inaniyakapil2000.com +91 9828522814</a> -->
+                                
+                            </div>
+                
+                            <!-- Social Icons -->
+                            <div class="text-center">
+                                <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" class="text-info me-3">
+                                    <i class="bi bi-linkedin" style="font-size: 2rem;"></i>
+                                </a>
+                                <a href="https://github.com/your-github-username" target="_blank" class="text-dark me-3">
+                                    <i class="bi bi-github" style="font-size: 2rem; color: white;"></i>
+                                </a>
+                                <a href="https://www.facebook.com/your-facebook-profile" target="_blank" class="text-primary me-3">
+                                    <i class="bi bi-facebook" style="font-size: 2rem;"></i>
+                                </a>
+                                <a href="https://plus.google.com/your-google-profile" target="_blank" class="text-danger">
+                                    <i class="bi bi-google" style="font-size: 2rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+
+                <!-- Displayed when any menu item is clicked -->
+                <div class="clicked-content additional-content-next main_header" style="display: none;">
+                    <h1>Hey, someone is clicked!</h1>
+                </div>
+            </div>
+            <div class="col-5 pt-5">
+                <!-- Content for each menu item -->
+                <div class="home-content mt-5">
+                    <img src="rightSide.gif" alt="" class="img-fluid">
+                </div>
+                <div class="resume-content right_content additional-content">
+                    <h2>Resume Content</h2>
+                    
+            
+                    <!-- Education Section -->
+                    <h3 class="mb-4">Education</h3>
+            
+                    <!-- 10th Grade -->
+                    <div class="mb-4">
+                        <h4>10th Grade <i class="bi bi-emoji-smile"></i></h4>
+                        <p>School name: Shri Hari School, Jodhpur</p>
+                        <p>Year: 2015 <i class="bi bi-calendar"></i></p>
+                    </div>
+            
+                    <!-- 12th Grade -->
+                    <div class="mb-4">
+                        <h4>12th Grade <i class="bi bi-emoji-laughing"></i></h4>
+                        <p>School: Kota Career Point, Rajasthan</p>
+                        <p>Year: 2017 <i class="bi bi-calendar"></i></p>
+                    </div>
+                </div>
+                <div class="skills-content right_content additional-content">
+                    <h2>Skills Content</h2>
+                    
+            
+                    <!-- Professional Skills -->
+                    <h3>Professional Skills</h3>
+                    <div class="mb-4">
+                        <p>Communication <i class="bi bi-chat-left"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                        </div>
+            
+                        <p>Leadership <i class="bi bi-people"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+            
+                        <p>Confidence <i class="bi bi-emoji-sunglasses"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                        </div>
+                    </div>
+            
+                    <!-- Software Skills -->
+                    <h3>Software Skills</h3>
+                    <div class="mb-4">
+                        <p>VSCode <i class="bi bi-code"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                        </div>
+            
+                        <p>PyCharm <i class="bi bi-python"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                        </div>
+            
+                        <p>Browser <i class="bi bi-globe"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                        </div>
+                    </div>
+            
+                    <!-- Code Skills -->
+                    <h3>Code Skills</h3>
+                    <div class="mb-4">
+                        <p>Python <i class="bi bi-python"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                        </div>
+            
+                        <p>JavaScript <i class="bi bi-javascript"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+            
+                        <p>PHP <i class="bi bi-php"></i></p>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-content right_content additional-content">
+                    <h2>Portfolio Content</h2>
+                    <hr>
+            
+                    <!-- Image Gallery -->
+                    <div class="portfolio-gallery mb-4">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <a href="https://www.cssvibe.com/" target="_blank"><img src="cssvibe.png" alt="Image 1" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal1"></a>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <a href="https://www.radianceattire.site/"  target="_blank"><img src="attire.png" alt="Image 1" class="img-fluid" data-bs-toggle="modal" data-bs-target="#imageModal2"></a>
+                            </div>
+                            
+                            <!-- Add more images in a similar way -->
+            
+                            <!-- Modal for Image 1 -->
+                            <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="cssvibe.png" alt="Image 1" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- Modal for Image 2 -->
+                             <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="attire.png" alt="Image 1" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- Modal for Image 3 -->
+                             <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="movie.png" alt="Image 1" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more modals for additional images -->
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-content right_content additional-content">
+                    <h2>Blog Content</h2>
+            
+                    <!-- Blog Post -->
+                    <div class="mb-4">
+                        <h3>First Blog Post</h3>
+                        <p class="text-muted">Published on January 25, 2024</p>
+                        <img src="blog-image1.jpg" alt="Blog Image" class="img-fluid mb-3">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod felis id velit suscipit, non fringilla lectus condimentum. Sed nec orci eu metus malesuada sollicitudin. Vestibulum cursus malesuada erat, vel cursus libero fermentum vel. Mauris tincidunt metus sit amet ex dapibus interdum. Vivamus hendrerit nisi vel urna ultricies ultrices.</p>
+                    </div>
+            
+                    <!-- Another Blog Post -->
+                    <div class="mb-4">
+                        <h3>Second Blog Post</h3>
+                        <p class="text-muted">Published on February 10, 2024</p>
+                        <img src="blog-image2.jpg" alt="Blog Image" class="img-fluid mb-3">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod felis id velit suscipit, non fringilla lectus condimentum. Sed nec orci eu metus malesuada sollicitudin. Vestibulum cursus malesuada erat, vel cursus libero fermentum vel. Mauris tincidunt metus sit amet ex dapibus interdum. Vivamus hendrerit nisi vel urna ultricies ultrices.</p>
+                    </div>
+                </div>
+                <div class="contact-content right_content additional-content">
+                    <h2>Contact Content</h2>
+                    
+            
+                    <!-- Bootstrap Form -->
+                    <div class="mb-4">
+                        <form>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Type your message"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Bundle from CDN (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="autotyping.min.js"></script>
+    <script>
+ // Set default content type
+    let currentContentType = 'main';
+
+    function showContent(contentType) {
+        // Hide all additional content
+        document.querySelectorAll('.additional-content').forEach(function (element) {
+            element.style.display = 'none';
+        });
+
+        // Update the current content type
+        currentContentType = contentType;
+
+        // Show the specific content based on the clicked menu item
+        document.querySelector('.' + currentContentType + '-content').style.display = 'block';
+        document.querySelector('.main-content.additional-content-next').style.display = 'none';
+    }
+
+    // Show the default content when the page loads
+    window.onload = function () {
+        showContent(currentContentType);
+    };
+
+    const menuItems = document.querySelectorAll(".menu-item");
+    menuItems.forEach(item => {
+        item.addEventListener("click", function() {
+            hideHomeContent();
+        });
+    });
+
+    function hideHomeContent() {
+        const homeContent = document.querySelector(".home-content");
+        homeContent.style.display = "none";
+    }
+    function reloadPage() {
+        location.reload();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const textElement = document.getElementById('typing-text');
+    const textContent = textElement.innerText;
+    textElement.innerText = '';
+
+    let i = 0;
+    function typeWriter() {
+      if (i < textContent.length) {
+        textElement.innerHTML += textContent.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100); // Adjust the typing speed (milliseconds)
+      }
+    }
+
+    typeWriter();
+  });
+
+
+  const exampleText = [
+  'Frontend Web Developer 😀',
+  'Backend Developer 🤩',
+  'Full Stack Developer ✨',
+  'JavaScript Developer ⭐',
+  'React.js Developer 🚀',
+  'Node.js Developer 🌌',
+  'UI/UX Developer 🖖',
+  'Mobile App Developer 🤓',
+  'Responsive Web Designer 🖥️',
+  'Web Development Enthusiast 🌐'
+];
+    const exampleTyping = new AutoTyping('.example-selector', exampleText, {
+        typeSpeed: 50,
+        deleteSpeed: 50,
+        waitBeforeDelete: 2000,
+        waitBetweenWords: 500,
+    });
+    exampleTyping.start()
+
+    </script>
+
+<script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "25afafa5-911f-458c-a6d8-cb7eb95a6267", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "14be91a5-47bc-44aa-8822-6818debadb58", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+</body>
+</html>
